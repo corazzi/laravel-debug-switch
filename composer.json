@@ -1,0 +1,22 @@
+{
+  "name": "corazzi/laravel-debug-switch",
+  "description": "Enable or disable debugging for your current Laravel session only",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "files": [
+      "src/helpers.php"
+    ],
+    "psr-4": {
+      "Corazzi\\LaravelDebugSwitch\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Sacha Corazzi",
+      "email": "sacha.corazzi@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {}
+}
