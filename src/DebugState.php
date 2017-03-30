@@ -26,6 +26,19 @@ class DebugState
     }
 
     /**
+     * Get the state that should be set based on what's in the cache,
+     * or just return the current state if one hasn't been cached yet
+     *
+     * @return bool
+     */
+    public function cachedState() : bool
+    {
+       return cache()->get(debugSwitchCacheKey(), function () {
+           return $this->current();
+       });
+    }
+
+    /**
      * Turn the debug state on or off
      *
      * @param bool|string $state

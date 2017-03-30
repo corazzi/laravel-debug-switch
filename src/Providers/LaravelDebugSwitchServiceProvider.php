@@ -1,6 +1,7 @@
 <?php
 namespace Corazzi\LaravelDebugSwitch\Providers;
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 
 class LaravelDebugSwitchServiceProvider extends ServiceProvider
@@ -15,10 +16,5 @@ class LaravelDebugSwitchServiceProvider extends ServiceProvider
         ]);
 
         $this->loadRoutesFrom(__DIR__.'/../Http/routes.php');
-    }
-
-    public function register()
-    {
-        //dd(session(debugSwitchCacheKey()));
     }
 }

@@ -1,10 +1,10 @@
 <?php
 return [
-    'session' => [
+    'session'             => [
         /**
          * How long the session should last in minutes until the debug value is reverted
          */
-        'lifetime' => 30,
+        'lifetime'   => 5,
 
         /**
          * If keep_alive is true, then the session timeout will refresh after every request
@@ -21,15 +21,17 @@ return [
     /**
      * If you wish to style the debug switch icon yourself, you can assign it a custom class
      */
-    'icon' => [
-        'class' => 'debug-switcher-icon'
+    'icon'                => [
+        'class' => 'debug-switcher-icon',
     ],
 
     /**
      * If you want to set up some middleware to protect access to toggling the debug state,
-     * which you really should do, define the middleware here
+     * which you really should do, define the middleware here. In order for the package
+     * to work properly you MUST use the EncryptCookies and StartSession middlewares
      */
-    'middleware' => [
-        // Illuminate\Auth\Middleware\Authenticate::class
+    'middleware'          => [
+        \App\Http\Middleware\EncryptCookies::class,
+        \Illuminate\Session\Middleware\StartSession::class,
     ],
 ];

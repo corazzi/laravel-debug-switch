@@ -7,12 +7,22 @@ use Illuminate\Routing\Controller;
 
 class DebugController extends Controller
 {
+    /**
+     * DebugController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware(
+            config('debug-switch.middleware')
+        );
+    }
+
     public function toggle()
     {
         $debugState = new DebugState;
 
         // Toggle the debug state
-        //$debugState->toggle();
+        $debugState->toggle();
 
         // Store it in the cache so we can ensure it's still set on subsequent requests
         cacheDebugState($debugState);
